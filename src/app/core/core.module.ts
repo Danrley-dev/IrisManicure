@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CoreRoutingModule } from './core-routing.module';
 import { NavbarComponent } from './components/navbar/navbar/navbar.component';
 import { MaterialModule } from '../shared/material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { MaterialModule } from '../shared/material/material.module';
   imports: [
     CommonModule,
     CoreRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [ 
     NavbarComponent
