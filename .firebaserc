@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "iris-aa28b": {
+      "hosting": {
+        "IrisManicure": [
+          "iris-aa28b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "iris-aa28b"
+  }
+}
