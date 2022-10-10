@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SharedRoutingModule } from './shared-routing.module';
 import { LoaderComponent } from './loader/loader.component';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { LoaderComponent } from './loader/loader.component';
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
-  ]
+    MaterialModule
+  ],
+  exports: [LoaderComponent]
 })
 export class SharedModule { }

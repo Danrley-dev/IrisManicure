@@ -1,0 +1,25 @@
+<mat-toolbar>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>login</mat-icon>
+              <span>Entrar</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>checklist</mat-icon>
+              <span>Agendar</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>logout</mat-icon>
+              <span>Sair</span>
+            </button>
+          </mat-menu>
+    </button>
+    <span>Iris</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>person</mat-icon>
+    </button>
+</mat-toolbar>
+  
