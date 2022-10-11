@@ -18,7 +18,6 @@ export class CadastroComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(8)]],
       confirma_senha: [''],
-      recaptcha: ['', Validators.required],
     },
     { validators: [this.matchPasswords] }
   );

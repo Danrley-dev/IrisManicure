@@ -10,3 +10,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
     --black: black;
     --fundo: #F5F5F6;
 }
+
+.container {
+    margin-top: 100px;
+    text-align: center;
+    margin-left: 0;
+}
+
+mat-form-field {
+    width: 300px;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+}
+
+.login{
+    background-color: var(--OneColor);
+}
