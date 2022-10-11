@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="signupForm">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <h2>Cadastro</h2>
         <p>Seja bem-vindo(a)</p>
         <mat-form-field appearance="standard">
@@ -41,7 +41,7 @@
             As senhas não correspondem
         </span>
         <br>
-        <button mat-raised-button class="login" [disabled]="signupForm.invalid">
+        <button mat-raised-button class="login">
             Cadastrar
         </button>
         <br>
