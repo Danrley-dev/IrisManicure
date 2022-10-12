@@ -1,22 +1,46 @@
 import { Injectable } from '@angular/core';
-import { Auth} from '@angular/fire/auth';
-import { doc, Firestore } from '@angular/fire/firestore';
+import { Auth, authState} from '@angular/fire/auth';
+import { doc, docData, Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { collection, setDoc } from 'firebase/firestore';
-import { from, tap } from 'rxjs';
+import { first, from, map, switchMap, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   usuarios = collection(this.db, 'usuarios');
-
+  uid?: string;
   constructor(
     private auth: Auth,
     private db: Firestore,
     private router: Router
   ) { }
+
+  get logged() {
+    return authState(this.auth).pipe(
+      tap((user) => {
+        this.uid = user?.uid;
+      })
+    );
+  }
+
+  get userData() {
+    const userDoc = doc(this.usuarios, this.uid);
+    return docData(userDoc).pipe(first());
+  }
+
+  get isAdmin() {
+    return authState(this.auth).pipe(
+      first(),
+      switchMap((user: any) => {
+        const userDoc = doc(this.usuarios, user?.uid);
+        return docData(userDoc).pipe(first());
+      }),
+      map((user) => user['isAdmin'] === true)
+    );
+  }
 
   loginGoogle() {
     return from(signInWithPopup(this.auth, new GoogleAuthProvider())).pipe(
@@ -75,5 +99,9 @@ export class AuthService {
         this.emailVerificacao(creds.user);
       })
     );
+  }
+
+  recoverPassword(email: string) {
+    return from(sendPasswordResetEmail(this.auth, email));
   }
 }

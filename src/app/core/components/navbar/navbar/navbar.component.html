@@ -26,9 +26,31 @@
       </button>
     </mat-menu>
   </button>
-  <!-- <span></span> -->
   <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="logout()">
-    <mat-icon >logout</mat-icon>
+  <button mat-icon-button class="example-icon" (click)="logout()">
+    <mat-icon>logout</mat-icon>
   </button>
+
+  <ng-template #unlogged>
+    <div>
+      <button mat-menu-item>
+        <a routerLink="/login">
+          <mat-icon>login</mat-icon>
+          <span>Entrar</span>
+        </a>
+      </button>
+      <button mat-menu-item>
+        <a routerLink="/">
+          <mat-icon>home</mat-icon>
+          <span>Feed</span>
+        </a>
+      </button>
+      <button mat-menu-item>
+        <a routerLink="cadastro">
+          <mat-icon>person_add</mat-icon>
+          <span>Cadastre-se</span>
+        </a>
+      </button>
+    </div>
+  </ng-template>
 </mat-toolbar>

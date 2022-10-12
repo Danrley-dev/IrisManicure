@@ -9,7 +9,8 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  
+  logged$?: Observable<any>;
+
   constructor(
     private authService: AuthService,
     private toast: HotToastService

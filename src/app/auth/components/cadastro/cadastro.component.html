@@ -41,7 +41,7 @@
             As senhas não correspondem
         </span>
         <br>
-        <button mat-raised-button class="login">
+        <button mat-raised-button class="login" [disabled]="signupForm.invalid">
             Cadastrar
         </button>
         <br>
