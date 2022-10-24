@@ -15,8 +15,10 @@
         </a>
       </button>
       <button mat-menu-item>
-        <mat-icon>checklist</mat-icon>
-        <span>Agende seu horário</span>
+        <a routerLink="agendamento">
+          <mat-icon>checklist</mat-icon>
+          <span>Agende seu horário</span>
+        </a>
       </button>
       <button mat-menu-item>
         <a routerLink="cadastro">
@@ -30,27 +32,4 @@
   <button mat-icon-button class="example-icon" (click)="logout()">
     <mat-icon>logout</mat-icon>
   </button>
-
-  <ng-template #unlogged>
-    <div>
-      <button mat-menu-item>
-        <a routerLink="/login">
-          <mat-icon>login</mat-icon>
-          <span>Entrar</span>
-        </a>
-      </button>
-      <button mat-menu-item>
-        <a routerLink="/">
-          <mat-icon>home</mat-icon>
-          <span>Feed</span>
-        </a>
-      </button>
-      <button mat-menu-item>
-        <a routerLink="cadastro">
-          <mat-icon>person_add</mat-icon>
-          <span>Cadastre-se</span>
-        </a>
-      </button>
-    </div>
-  </ng-template>
 </mat-toolbar>

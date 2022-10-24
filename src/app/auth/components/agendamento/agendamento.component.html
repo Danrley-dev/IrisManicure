@@ -1,0 +1,24 @@
+<div class="container">
+    <form [formGroup]="agendamentoForm" (ngSubmit)="onSubmit()">
+        <h2>Agende seu horário</h2>
+        <p>Seja bem-vindo(a)</p>
+        <mat-form-field appearance="standard">
+            <mat-label>Data</mat-label>
+            <input matInput placeholder="Data" type="date" formControlName="data" required />
+            <mat-error *ngIf="agendamentoForm.get('data')?.errors?.['required']">Campo obrigatório</mat-error>
+            <mat-icon matPrefix>calendar_month</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>Contato</mat-label>
+            <input matInput mask="(00) 00000-0000" placeholder="(XX) X XXXX-XXXX" formControlName="contato" required />
+            <mat-error *ngIf="agendamentoForm.get('contato')?.errors?.['required']">Campo obrigatório</mat-error>
+            <mat-error *ngIf="agendamentoForm.get('contato')?.errors?.['maxlength']">Máximo 13 digitos</mat-error>
+            <mat-icon matPrefix>call</mat-icon>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button class="login" [disabled]="agendamentoForm.invalid">
+            Agendar
+        </button>
+        <br>
+    </form>
+</div>

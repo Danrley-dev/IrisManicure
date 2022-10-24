@@ -11,6 +11,7 @@ export interface Feed {
     imagem?: string; 
     createdAt: Date;
     usuarioId?: string;
+    photoURL?:string;
 }
 
 export const FeedConverter: Converter<Feed> = {

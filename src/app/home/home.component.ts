@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-home',

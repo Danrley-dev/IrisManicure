@@ -25,6 +25,7 @@
     "@ngneat/overview": "^3.0.0",
     "firebase": "^9.11.0",
     "hamburgers": "^1.2.1",
+    "ngx-mask": "^14.2.3",
     "ngx-toastr": "^15.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
