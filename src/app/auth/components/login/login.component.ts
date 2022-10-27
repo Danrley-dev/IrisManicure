@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       .pipe(
         this.toast.observe({
           success: 'Seja bem-vindo(a)',
-          error: 'Um erro ocorreu',
+          error: 'Email / senha incorreta ou inexistente',
           loading: 'Fazendo login...',
         })
       )

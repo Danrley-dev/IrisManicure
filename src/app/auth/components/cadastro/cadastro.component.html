@@ -1,51 +1,36 @@
 <div class="container">
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
         <h2>Cadastro</h2>
         <p>Seja bem-vindo(a)</p>
         <mat-form-field appearance="standard">
             <mat-label>Nome</mat-label>
             <input matInput placeholder="Seu nome" formControlName="nome" required />
-            <mat-error *ngIf="signupForm.get('nome')?.errors?.['required']">Campo obrigatório</mat-error>
+            <mat-error *ngIf="cadastroForm.get('nome')?.errors?.['required']">Campo obrigatório</mat-error>
             <mat-icon matPrefix>person</mat-icon>
         </mat-form-field>
         <mat-form-field appearance="standard">
             <mat-label>Email</mat-label>
             <input matInput placeholder="Seu email" formControlName="email" required />
-            <mat-error *ngIf="signupForm.get('email')?.errors?.['required']">Campo obrigatório</mat-error>
-            <mat-error *ngIf="signupForm.get('email')?.errors?.['email']">Email inválido</mat-error>
+            <mat-error *ngIf="cadastroForm.get('email')?.errors?.['required']">Campo obrigatório</mat-error>
+            <mat-error *ngIf="cadastroForm.get('email')?.errors?.['email']">Email inválido</mat-error>
             <mat-icon matPrefix>email</mat-icon>
         </mat-form-field>
         <mat-form-field appearance="standard">
             <mat-label>Senha</mat-label>
-            <input matInput placeholder="Sua senha" formControlName="senha" [type]="hide ? 'password' : 'text'"/>
+            <input matInput placeholder="Sua senha" formControlName="senha" [type]="hide ? 'password' : 'text'" required/>
             <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </a>
-            <mat-error *ngIf="signupForm.get('senha')?.errors?.['required']">Campo obrigatório</mat-error>
-            <mat-error *ngIf="signupForm.get('senha')?.errors?.['minlength']">O mínimo são 8 caracteres
+            <mat-error *ngIf="cadastroForm.get('senha')?.errors?.['required']">Campo obrigatório</mat-error>
+            <mat-error *ngIf="cadastroForm.get('senha')?.errors?.['minlength']">O mínimo são 8 caracteres
             </mat-error>
             <mat-icon matPrefix>key</mat-icon>
         </mat-form-field>
-        <mat-form-field appearance="standard">
-            <mat-label>Confirmar senha</mat-label>
-            <input matInput placeholder="Confirmar senha" formControlName="confirma_senha"
-                [type]="hide ?  'password': 'text'"/>
-            <mat-error *ngIf="signupForm.get('senha')?.errors?.['required']">Campo obrigatório</mat-error>
-            <mat-error *ngIf="signupForm.get('senha')?.errors?.['minlength']">O mínimo são 8 caracteres
-            </mat-error>
-            <mat-icon matPrefix>key</mat-icon>
-        </mat-form-field>
-        <span class="mat-error"
-            *ngIf="signupForm.errors?.['matchPasswords'] && signupForm.get('confirma_senha')?.touched">
-            As senhas não correspondem
-        </span>
         <br>
-        <button mat-raised-button class="login" [disabled]="signupForm.invalid">
-            Cadastrar
-        </button>
+        <button mat-raised-button class="login" [disabled]="cadastroForm.invalid"> Cadastrar </button>
         <br>
-        <button (click)="onLoginGoogle()" type="button" mat-raised-button color="warn">
+        <button [disabled]="true" (click)="onLoginGoogle()" type="button" mat-raised-button color="warn">
             Entrar com o Google
         </button>
     </form>

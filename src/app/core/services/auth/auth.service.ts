@@ -11,7 +11,9 @@ import { first, from, map, switchMap, tap } from 'rxjs';
 })
 export class AuthService {
   usuarios = collection(this.db, 'usuarios');
+  currentUser$ = authState(this.auth);
   uid?: string;
+
   constructor(
     private auth: Auth,
     private db: Firestore,
@@ -80,6 +82,7 @@ export class AuthService {
     return from(signInWithEmailAndPassword(this.auth, email, password)).pipe(
       tap((creds) => {
         this.emailVerificacao(creds.user);
+        this.router.navigate(['/']);
       })
     );
   }
@@ -96,6 +99,7 @@ export class AuthService {
           email: email,
           nome: nome
         });
+        this.router.navigate(['/']);
         this.emailVerificacao(creds.user);
       })
     );

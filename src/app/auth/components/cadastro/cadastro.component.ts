@@ -15,29 +15,18 @@ export class CadastroComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private toast: HotToastService,
-    private router: Router
-  ) { }
+    private toast: HotToastService) { }
 
-  signupForm = this.fb.group(
+  cadastroForm = this.fb.group(
     {
       nome: ['', [Validators.required]],
-      nick: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(8)]],
-      confirma_senha: [''],
-    },
-    { validators: [this.matchPasswords] }
+    }
   );
 
-  matchPasswords(control: AbstractControl): ValidationErrors | null {
-    return control.get('senha')!.value !== control.get('confirma_senha')!.value
-      ? { matchPasswords: true }
-      : null;
-  }
-
   onSubmit() {
-    const { email, senha, nome } = this.signupForm.value;
+    const { email, senha, nome } = this.cadastroForm.value;
     this.authService
       .signupEmail(email!, senha!, nome!)
       .pipe(
