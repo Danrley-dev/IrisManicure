@@ -9,6 +9,25 @@
             <mat-icon matPrefix>calendar_month</mat-icon>
         </mat-form-field>
         <mat-form-field appearance="standard">
+            <mat-label>Serviço</mat-label>
+            <mat-select formControlName="servico" required>
+              <mat-option value="option">Mão simples</mat-option>
+              <mat-option value="option">Pé simples</mat-option>
+              <mat-option value="option">Pé e mão simples</mat-option>
+              <mat-option value="option">Mão decorada</mat-option>
+              <mat-option value="option">Pé decorado</mat-option>
+              <mat-option value="option">Pé e mão decorado</mat-option>
+              <mat-option value="option">Apenas spá</mat-option>
+            </mat-select>
+            <mat-icon matPrefix>list</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Digite seu nome" formControlName="nome" required />
+            <mat-error *ngIf="agendamentoForm.get('nome')?.errors?.['required']">Campo obrigatório</mat-error>
+            <mat-icon matPrefix>person</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
             <mat-label>Contato</mat-label>
             <input matInput mask="(00) 00000-0000" placeholder="(XX) X XXXX-XXXX" formControlName="contato" required />
             <mat-error *ngIf="agendamentoForm.get('contato')?.errors?.['required']">Campo obrigatório</mat-error>

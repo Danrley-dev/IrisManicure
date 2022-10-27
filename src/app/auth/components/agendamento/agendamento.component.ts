@@ -19,7 +19,10 @@ export class AgendamentoComponent implements OnInit {
   agendamentoForm = this.fb.group(
     {
       data: ['', [Validators.required]],
+      servico:['', [Validators.required]],
       contato: ['', [Validators.required]],
+      nome:['', [Validators.required]]
+      
     }
   );
 
